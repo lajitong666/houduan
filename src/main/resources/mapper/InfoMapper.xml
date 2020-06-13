@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.plus.mapper.InfoDao">
+
+    <resultMap id="Info" type="com.example.plus.entity.VO.InfoVO">
+        <result column="info_id" property="infoId" />
+        <result column="image" property="image" />
+        <result column="title" property="title" />
+    </resultMap>
+
+    <!--  获取资讯  -->
+    <select id="getAll" parameterType="java.util.HashMap" resultMap="Info">
+        select t1.info_id,t1.image,t1.title
+        from info as t1
+    </select>
+
+    <resultMap id="InfoDetail" type="com.example.plus.entity.VO.DetailVO">
+        <result column="image" property="image" />
+        <result column="author" property="author" />
+        <result column="upload_time" property="uploadTime" />
+        <result column="detail" property="detail" />
+    </resultMap>
+
+    <!--  获取资讯  -->
+    <select id="getOne" parameterType="java.util.HashMap" resultMap="InfoDetail">
+        select t1.image,t1.author,t1.upload_time,t1.detail
+        from info as t1
+        where t1.info_id = #{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.plus.mapper.IntegralDao">
+
+    <resultMap id="Integral" type="com.example.plus.entity.VO.IntegralVO">
+        <result column="details" property="details" />
+        <result column="integral" property="integral" />
+        <result column="create_date" property="createDate" />
+        <result column="update_date" property="updateDate" />
+    </resultMap>
+
+    <!--  获取用户积分详情  -->
+    <select id="getIntegral" parameterType="java.util.HashMap" resultMap="Integral">
+        select t1.details,t1.integral,t1.create_date,t1.update_date
+        from integral as t1
+        where t1.open_id = #{openId}
+        order by t1.create_date DESC
+    </select>
+
+</mapper>

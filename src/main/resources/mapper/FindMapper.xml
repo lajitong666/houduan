@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.plus.mapper.FindDao">
+
+    <resultMap id="find" type="com.example.plus.entity.VO.FindVO">
+        <result column="id" property="findId" />
+        <result column="user_name" property="name" />
+        <result column="user_image" property="userImage" />
+        <result column="content_image" property="contentImage" />
+        <result column="upload_time" property="uploadTime" />
+        <result column="title" property="title" />
+    </resultMap>
+
+    <!--  获取发现列表  -->
+    <select id="getAll" parameterType="java.util.HashMap" resultMap="find">
+        select t1.id,t1.user_name,t1.user_image,t1.content_image,t1.upload_time,t1.title
+        from find as t1
+    </select>
+
+    <resultMap id="findDetail" type="com.example.plus.entity.VO.FindDetailVO">
+        <result column="user_name" property="name" />
+        <result column="content_image" property="contentImage" />
+        <result column="upload_time" property="uploadTime" />
+        <result column="title" property="title" />
+        <result column="detail" property="detail" />
+        <result column="user_image" property="userImage" />
+    </resultMap>
+
+    <!--  获取发现详情  -->
+    <select id="getOne" parameterType="java.util.HashMap" resultMap="findDetail">
+        select t1.user_name,t1.content_image,t1.upload_time,t1.title,t1.detail,t1.user_image
+        from find as t1
+        where t1.id = #{id}
+    </select>
+
+    <insert id="upload">
+        INSERT INTO find(user_name,user_image,content_image,title,detail)VALUES(#{name},#{userImage},#{contentImage},#{title},#{detail})
+    </insert>
+</mapper>
