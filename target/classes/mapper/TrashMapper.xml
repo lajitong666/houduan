@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.plus.mapper.TrashDao">
+
+    <resultMap id="Trash" type="com.example.plus.entity.VO.TrashVO">
+        <result column="trash" property="trash" />
+        <result column="profit" property="profit" />
+    </resultMap>
+
+    <select id="get" parameterType="java.util.HashMap" resultMap="Trash">
+        select t1.trash,t1.profit
+        from trash as t1
+        where t1.open_id=#{id}
+    </select>
+</mapper>

@@ -91,4 +91,8 @@ public class UserController {
         return ApiResponse.success(user);
     }
 
+    @ApiOperation(value = "获取小程序secureid",tags = "直接post获取secureId")
+    @PostMapping("/getAppSecure")
+    
+
 }

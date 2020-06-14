@@ -8,4 +8,5 @@ public class DetailVO {
     private String author; //作者
     private String uploadTime; //上传时间
     private String detail; //具体内容
+    private String title; //资讯标题
 }
