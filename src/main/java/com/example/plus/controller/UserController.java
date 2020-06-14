@@ -90,9 +90,13 @@ public class UserController {
         }
         return ApiResponse.success(user);
     }
-
+///1ad1d07d51dd64b4e44510463904d31e
     @ApiOperation(value = "获取小程序secureid",tags = "直接post获取secureId")
     @PostMapping("/getAppSecure")
-    
+    public  ApiResponse getAppSecure(){
+        String secure = "1ad1d07d51dd64b4e44510463904d31e";
+        return ApiResponse.success(secure);
+    }
+
 
 }
