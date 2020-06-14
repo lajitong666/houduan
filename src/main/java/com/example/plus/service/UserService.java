@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface UserService extends IService<User> {
 
-    void addUser(String openId, String loginName, String name, String signature, String sex, String phone, String address, String credit, String type, String appointment, String served, String earnings, String count1, String count2, String integral, MultipartFile photo);
+    void addUser(String openId, String loginName, String name, String signature, String sex, String phone, String address, String credit, String type, String appointment, String served, String earnings, String count1, String count2, String integral, String email,String grade,MultipartFile photo);
 
     User getUserDetails(String openId);
 

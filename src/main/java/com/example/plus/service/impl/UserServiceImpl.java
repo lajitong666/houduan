@@ -53,6 +53,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
                         String count1,
                         String count2,
                         String integral,
+                        String email,
+                        String grade,
                         MultipartFile photo) {
         User user = new User();
         user.setOpenId(openId);
@@ -70,6 +72,8 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         user.setCount1(count1);
         user.setCount2(count2);
         user.setIntegral(integral);
+        user.setIntegral(email);
+        user.setIntegral(grade);
         String photoUrl = fileUtil.storeFile(name,photo);
         user.setPhoto(photoUrl);
         try{

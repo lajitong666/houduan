@@ -98,6 +98,16 @@ public class User implements Serializable {
     private String integral;
 
     /**
+     * 用户邮箱
+     */
+    private String email;
+
+    /**
+     * 用户等级
+     */
+    private String grade;
+
+    /**
      * 用户晒单图片路径
      */
     private String photo;

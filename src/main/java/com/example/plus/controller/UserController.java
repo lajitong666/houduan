@@ -59,10 +59,12 @@ public class UserController {
             @ApiParam(value = "小程序用户的垃圾分类的次数")     @RequestParam(value = "count1") String count1,
             @ApiParam(value = "小程序用户的垃圾回收的次数")    @RequestParam(value = "count2") String count2,
             @ApiParam(value = "小程序用户的总积分")    @RequestParam(value = "integral") String integral,
+            @ApiParam(value = "小程序用户的总积分")    @RequestParam(value = "email") String email,
+            @ApiParam(value = "小程序用户的总积分")    @RequestParam(value = "grade") String grade,
             @ApiParam(value = "小程序用户的晒单的图片路径")    @RequestParam(value = "photo") MultipartFile photo
     ){
         try {
-            userService.addUser(openId,loginName,name,signature,sex,phone,address,credit,type,appointment,served,earnings,count1,count2,integral,photo);
+            userService.addUser(openId,loginName,name,signature,sex,phone,address,credit,type,appointment,served,earnings,count1,count2,integral,email,grade,photo);
         } catch (BizException e) {
             logger.error(e.getErrMessage());
             return ApiResponse.error("新增用户失败");
